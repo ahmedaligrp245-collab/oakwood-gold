@@ -1,0 +1,188 @@
+@import "tailwindcss";
+
+:root {
+  /* Oakwood Gold Edition – Institutional Design Tokens */
+  --oak-navy-950: #0B1220;
+  --oak-navy-900: #0F172A;
+  --oak-navy-800: #1E293B;
+  --oak-navy-700: #334155;
+  --oak-charcoal: #1A1F2E;
+  --oak-slate: #64748B;
+  --oak-muted: #94A3B8;
+  --oak-border: #1E293B;
+  --oak-surface: #111827;
+  --oak-card: #0F172A;
+  --oak-gold: #C9A227;
+  --oak-gold-light: #E8C547;
+  --oak-teal: #0D9488;
+  --oak-teal-light: #14B8A6;
+  --oak-success: #10B981;
+  --oak-danger: #EF4444;
+  --oak-warning: #F59E0B;
+  --oak-white: #F8FAFC;
+  --oak-text: #E2E8F0;
+  --oak-text-muted: #94A3B8;
+}
+
+@theme inline {
+  --color-background: var(--oak-navy-950);
+  --color-foreground: var(--oak-text);
+  --font-sans: var(--font-inter);
+  --font-mono: var(--font-geist-mono);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--oak-navy-950);
+  color: var(--oak-text);
+  font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--oak-navy-900);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--oak-navy-700);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--oak-slate);
+}
+
+/* Utility classes */
+.oak-card {
+  background: var(--oak-card);
+  border: 1px solid var(--oak-border);
+  border-radius: 12px;
+}
+
+.oak-surface {
+  background: var(--oak-surface);
+}
+
+.gold-accent {
+  color: var(--oak-gold);
+}
+
+.gold-bg {
+  background: linear-gradient(135deg, #C9A227 0%, #A67C00 100%);
+}
+
+.teal-accent {
+  color: var(--oak-teal-light);
+}
+
+/* Table styles */
+.oak-table th {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--oak-muted);
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--oak-border);
+}
+
+.oak-table td {
+  padding: 14px 16px;
+  border-bottom: 1px solid rgba(30, 41, 59, 0.6);
+  font-size: 13.5px;
+}
+
+.oak-table tr:hover td {
+  background: rgba(15, 23, 42, 0.7);
+}
+
+/* Input focus */
+input:focus, select:focus, textarea:focus {
+  outline: none;
+  border-color: var(--oak-teal) !important;
+  box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.15);
+}
+
+/* Button base */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-weight: 500;
+  font-size: 14px;
+  border-radius: 8px;
+  transition: all 0.15s ease;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #0D9488 0%, #0F766E 100%);
+  color: white;
+  border: none;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, #14B8A6 0%, #0D9488 100%);
+  transform: translateY(-1px);
+}
+
+.btn-gold {
+  background: linear-gradient(135deg, #C9A227 0%, #A67C00 100%);
+  color: #0B1220;
+  border: none;
+  font-weight: 600;
+}
+
+.btn-gold:hover {
+  background: linear-gradient(135deg, #E8C547 0%, #C9A227 100%);
+  transform: translateY(-1px);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--oak-text-muted);
+  border: 1px solid var(--oak-border);
+}
+
+.btn-ghost:hover {
+  background: var(--oak-navy-800);
+  color: var(--oak-text);
+}
+
+.btn-danger {
+  background: rgba(239, 68, 68, 0.15);
+  color: #F87171;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+.btn-danger:hover {
+  background: rgba(239, 68, 68, 0.25);
+}
+
+/* Positive / Negative */
+.positive { color: #10B981; }
+.negative { color: #EF4444; }
+
+/* Loading shimmer */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.shimmer {
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.04), transparent);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
